@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layana Balin Santoso | UI/UX Designer & Web/App Developer</title>
+  <meta name="description" content="Portofolio Layana Balin Santoso - UI/UX Designer, Web & App Developer, serta Multimedia & Digital Marketing Specialist.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-icon.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       CINEMATIC PRELOADER ENTRANCE ANIMATION
+       ========================================== -->
+  <div id="entrance-preloader" class="entrance-preloader" aria-hidden="true">
+    <!-- Ambient Energy Rings (Planetary Orbit effect inspired by cosmic concept) -->
+    <div class="preloader-energy-orb"></div>
+    <div class="preloader-ring preloader-ring-1"></div>
+    <div class="preloader-ring preloader-ring-2"></div>
+
+    <div class="preloader-center">
+      <!-- Animated SVG Logo Stage -->
+      <div class="preloader-logo-wrapper">
+        <svg class="preloader-svg-logo" viewBox="0 0 250 64" fill="none">
+          <defs>
+            <linearGradient id="pCyanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#00f5ff" />
+              <stop offset="100%" stop-color="#00a3ff" />
+            </linearGradient>
+            <linearGradient id="pArrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00c8ff" />
+              <stop offset="60%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#818cf8" />
+            </linearGradient>
+            <linearGradient id="pPurpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#6366f1" />
+              <stop offset="50%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#a855f7" />
+            </linearGradient>
+            <linearGradient id="pDotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00f5ff" />
+              <stop offset="100%" stop-color="#a855f7" />
+            </linearGradient>
+            <filter id="pGlowFilter" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Emblem Group with Glowing Effects -->
+          <g transform="translate(4, 2)" filter="url(#pGlowFilter)">
+            <!-- 1. Left Vertical Cyan U-shape (Animated Path) -->
+            <path class="anim-path anim-u-path" d="M 14 12 L 14 44 C 14 52 20 57 28 57 C 36 57 41 52 41 44 L 41 22" 
+                  stroke="url(#pCyanGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+            <!-- 2. Bottom Purple L-Base (Animated Path) -->
+            <path class="anim-path anim-base-path" d="M 30 57 L 62 57 C 67 57 71 53 71 48 C 71 43 67 39 62 39 L 41 39" 
+                  stroke="url(#pPurpleGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+            <!-- 3. Diagonal Arrow (Animated Path) -->
+            <line class="anim-path anim-arrow-shaft" x1="26" y1="53" x2="63" y2="17" 
+                  stroke="url(#pArrowGrad)" stroke-width="4.5" stroke-linecap="round" />
+            <path class="anim-path anim-arrow-head" d="M 48 16 L 65 16 L 65 33" 
+                  stroke="url(#pArrowGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+            <!-- 4. Floating Singularity Dot (Pulsing Orbit) -->
+            <circle class="anim-singularity-dot" cx="73" cy="8" r="3.6" fill="url(#pDotGrad)" />
+          </g>
+
+          <!-- Brand Text Revealed with Cinematic Stagger -->
+          <g transform="translate(94, 35)">
+            <text class="anim-text-name" x="0" y="0" fill="#ffffff" 
+                  font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+                  font-size="24" font-weight="800" letter-spacing="3.5">LAYANA</text>
+            <text class="anim-text-sub" x="1.5" y="17" fill="#94a3b8" 
+                  font-family="'Plus Jakarta Sans', system-ui, sans-serif" 
+                  font-size="9.5" font-weight="600" letter-spacing="5">PORTOFOLIO</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Futuristic Neon Progress Tracker -->
+      <div class="preloader-progress-wrap">
+        <div class="preloader-status-row">
+          <span id="preloader-status-text" class="preloader-status-text">INITIALIZING SYSTEM...</span>
+          <span id="preloader-percent" class="preloader-percent">0%</span>
+        </div>
+        <div class="preloader-bar-track">
+          <div id="preloader-bar-fill" class="preloader-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Skip Button -->
+      <button id="preloader-skip-btn" class="preloader-skip-btn" aria-label="Lewati animasi intro">
+        Lewati Intro <span>[ESC]</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Background Three.js 3D Interactive Canvas -->
+  <div id="three-canvas-container"></div>
+
+  <!-- Ambient Glows -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Section Pop-up HUD Toast (Triggered on Section / Slide Transitions) -->
+  <div id="section-pop-toast" class="section-pop-toast">
+    <div class="toast-dot"></div>
+    <span id="toast-text">🚀 Menampilkan Slide: <strong>Home</strong></span>
+  </div>
+
+  <!-- Floating Slide Navigator (Right Dock) -->
+  <aside class="slide-navigator" aria-label="Slide Navigation">
+    <div class="slide-dot active" data-target="#home" data-tooltip="Home"></div>
+    <div class="slide-dot" data-target="#about" data-tooltip="About & Stats"></div>
+    <div class="slide-dot" data-target="#education" data-tooltip="Riwayat Pendidikan"></div>
+    <div class="slide-dot" data-target="#skills" data-tooltip="Keahlian & Skill"></div>
+    <div class="slide-dot" data-target="#projects" data-tooltip="Project Portfolio"></div>
+    <div class="slide-dot" data-target="#certificates" data-tooltip="Sertifikat"></div>
+    <div class="slide-dot" data-target="#contact" data-tooltip="Kontak"></div>
+  </aside>
+
+  <!-- Sticky Header & Navbar -->
+  <header class="header-nav">
+    <nav class="nav-container">
+      <a href="#home" class="nav-brand" aria-label="Layana Portofolio">
+        <img src="assets/logo.png" alt="LAYANA PORTOFOLIO" class="nav-brand-logo">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="#education" class="nav-link" data-i18n="nav_education">Education</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#certificates" class="nav-link" data-i18n="nav_certificates">Certificates</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher Pill -->
+        <div class="lang-switch" role="group" aria-label="Language Selector">
+          <button type="button" class="lang-btn active" data-lang="id" title="Bahasa Indonesia">ID</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="en" title="English">EN</button>
+        </div>
+
+        <a href="#contact" class="btn btn-primary" data-i18n="hire_me">Hire Me ↗</a>
+        <button class="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-wrapper">
+
+    <!-- ==========================================
+         HERO SECTION (Profile & Bio)
+         ========================================== -->
+    <section id="home" data-name="Profile & Home" class="hero-section pop-reveal visible">
+      <div class="hero-content">
+        <span class="badge-pill" data-i18n="hero_badge">UI/UX DESIGNER &amp; DEVELOPER</span>
+        <h1 class="hero-title">
+          <span data-i18n="hero_hi">Hi, I’m</span> <span class="gradient-text">Layana</span><br>
+          <span data-i18n="hero_role" style="font-size: 0.54em; font-weight: 700; display: block; color: var(--text-secondary); margin-top: 10px; line-height: 1.35; letter-spacing: -0.01em;">
+            UI/UX Designer | Web &amp; App Developer | Multimedia &amp; Digital Marketing Specialist
+          </span>
+        </h1>
+        <p class="hero-description" data-i18n="hero_desc">
+          Mahasiswa Teknologi Rekayasa Perangkat Lunak (Fakultas Vokasi, Universitas Brawijaya) dengan latar belakang kuat di bidang Desain Komunikasi Visual. Terbiasa menggabungkan estetika visual, prinsip desain antarmuka modern, dan pengembangan kode fungsional untuk membangun produk digital yang responsif dan berorientasi pada pengguna.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary" data-i18n="btn_view_work">View My Work ↗</a>
+          <a href="#contact" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="btn_download_cv">Download CV</span>
+          </a>
+        </div>
+
+        <div class="tech-stack-wrap">
+          <span class="tech-stack-label" data-i18n="tech_stack_label">TECHNOLOGIES I WORK WITH</span>
+          <div class="tech-icons-row">
+            <!-- HTML5 -->
+            <div class="tech-icon-item" data-tooltip="HTML5">
+              <svg viewBox="0 0 24 24" fill="#e34f26"><path d="M12 2L3 5.3v13.4L12 22l9-3.3V5.3L12 2zm6.2 15.3l-6.2 2.3-6.2-2.3V6.9l6.2-2.3 6.2 2.3v10.4z"/></svg>
+            </div>
+            <!-- CSS3 -->
+            <div class="tech-icon-item" data-tooltip="CSS3">
+              <svg viewBox="0 0 24 24" fill="#1572b6"><path d="M12 2L3 5.3v13.4L12 22l9-3.3V5.3L12 2zm6.2 15.3l-6.2 2.3-6.2-2.3V6.9l6.2-2.3 6.2 2.3v10.4z"/></svg>
+            </div>
+            <!-- JavaScript -->
+            <div class="tech-icon-item" data-tooltip="JavaScript">
+              <svg viewBox="0 0 24 24" fill="#f7df1e"><path d="M3 3h18v18H3V3zm14.5 13.5v-7h-2.5v7h2.5zm-5 0v-4.5c0-1.4-.9-2.5-2.5-2.5-1.5 0-2.4 1-2.5 2.5h2c0-.5.2-.9.8-.9s.7.4.7.9v.5h-2c-1.7 0-2.5 1-2.5 2.5 0 1.4.9 2 2.3 2 1.2 0 1.9-.6 2.2-1.5v1.5h1.5z"/></svg>
+            </div>
+            <!-- TypeScript -->
+            <div class="tech-icon-item" data-tooltip="TypeScript">
+              <svg viewBox="0 0 24 24" fill="#3178c6"><path d="M3 3h18v18H3V3zm12.5 6.5h-6v2h2v6.5h2V11.5h2v-2zm-8 4c.4.8 1.1 1.2 2.1 1.2 1.1 0 1.8-.6 1.8-1.4 0-2-3.8-1.5-3.8-4.2 0-1.6 1.3-2.6 3.4-2.6 1.5 0 2.6.5 3.3 1.8l-1.6 1c-.3-.6-.8-1-1.7-1-.9 0-1.5.4-1.5 1.1 0 1.9 3.8 1.4 3.8 4.2 0 1.7-1.4 2.8-3.7 2.8-1.8 0-3.1-.7-3.8-2.1l1.6-.8z"/></svg>
+            </div>
+            <!-- React -->
+            <div class="tech-icon-item" data-tooltip="React.js">
+              <svg viewBox="0 0 24 24" fill="#61dafb"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" fill="none" stroke="#61dafb" stroke-width="1.2"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)" fill="none" stroke="#61dafb" stroke-width="1.2"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)" fill="none" stroke="#61dafb" stroke-width="1.2"/></svg>
+            </div>
+            <!-- Next.js -->
+            <div class="tech-icon-item" data-tooltip="Next.js">
+              <svg viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 14.5L9.8 8.6h2.1l4.4 6.8-.8 1.1zM8.5 8.6v6.8H7.2V8.6h1.3z"/></svg>
+            </div>
+            <!-- Node.js -->
+            <div class="tech-icon-item" data-tooltip="Node.js">
+              <svg viewBox="0 0 24 24" fill="#339933"><path d="M12 2l8.7 5v10L12 22 3.3 17V7L12 2zm0 2.3L5.3 8.7v6.6L12 19.7l6.7-4.4V8.7L12 4.3z"/></svg>
+            </div>
+            <!-- Git -->
+            <div class="tech-icon-item" data-tooltip="Git & GitHub">
+              <svg viewBox="0 0 24 24" fill="#f05032"><path d="M21.6 10.9L13.1 2.4c-.6-.6-1.5-.6-2.1 0L8.6 4.8l2.6 2.6c.6-.2 1.3-.1 1.8.4.5.5.6 1.2.4 1.8l2.5 2.5c.6-.2 1.3-.1 1.8.4.7.7.7 1.9 0 2.6-.7.7-1.9.7-2.6 0-.5-.5-.6-1.3-.4-1.8l-2.4-2.4v5.3c.2.2.3.4.3.7 0 .9-.8 1.7-1.7 1.7s-1.7-.8-1.7-1.7c0-.7.4-1.3 1-1.6V8.6c-.6-.3-1-.9-1-1.6 0-.5.2-1 .6-1.3L4.8 8.6c-.6.6-.6 1.5 0 2.1l8.5 8.5c.6.6 1.5.6 2.1 0l6.2-6.2c.6-.6.6-1.5 0-2.1z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Side (Avatar with glowing halo & Floating Code card) -->
+      <div class="hero-visual">
+        <div class="avatar-wrapper">
+          <div class="avatar-halo"></div>
+
+          <!-- Hand-drawn arrow SVG decoration -->
+          <svg class="doodle-arrow" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round">
+            <path d="M10 45 C 20 20, 40 10, 48 30" />
+            <path d="M 40 32 L 48 30 L 46 22" />
+          </svg>
+
+          <!-- Avatar Image Container -->
+          <div class="avatar-image-container">
+            <img src="assets/profile.svg" alt="Layana Balin Santoso" class="avatar-img">
+          </div>
+
+          <!-- Floating Code Snippet Card -->
+          <div class="floating-code-card">
+            <div class="code-card-header">
+              <div class="code-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="code-title">&lt;/&gt; Code</span>
+            </div>
+            <div class="code-body">
+              <span class="code-keyword">const</span> <span class="code-var">designerDeveloper</span> = {<br>
+              &nbsp;&nbsp;<span class="code-prop">name</span>: <span class="code-str">"Layana Balin Santoso"</span>,<br>
+              &nbsp;&nbsp;<span class="code-prop">role</span>: [<span class="code-str">"UI/UX"</span>, <span class="code-str">"Web & App"</span>],<br>
+              &nbsp;&nbsp;<span class="code-prop">passion</span>: <span class="code-str">"Crafting digital experiences"</span><br>
+              };
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         ABOUT & STATS SECTION
+         ========================================== -->
+    <section id="about" data-name="Tentang Saya & Statistik" class="about-section pop-reveal">
+      <div>
+        <span class="badge-pill" data-i18n="about_badge">ABOUT ME</span>
+        <h2 class="section-title" data-i18n="about_title">
+          I'm passionate about<br>creating digital solutions
+        </h2>
+        <p class="section-subtitle" data-i18n="about_desc">
+          With 4+ years of experience in web development, I help businesses, startups, and individuals bring their ideas to life through clean, efficient, highly responsive, and user-friendly code.
+        </p>
+        <a href="#contact" class="btn btn-secondary">
+          <span data-i18n="btn_about_more">Learn More About Me</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+      </div>
+
+      <!-- Stats Grid matching inspiration cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-value">4+</div>
+          <div class="stat-label" data-i18n="stat_exp">Years Experience</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">&lt;/&gt;</div>
+          <div class="stat-value">50+</div>
+          <div class="stat-label" data-i18n="stat_projects">Projects Completed</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">😊</div>
+          <div class="stat-value">30+</div>
+          <div class="stat-label" data-i18n="stat_clients">Happy Clients</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-value">100%</div>
+          <div class="stat-label" data-i18n="stat_satisfaction">Client Satisfaction</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         RIWAYAT PENDIDIKAN (Education Timeline)
+         ========================================== -->
+    <section id="education" data-name="Riwayat Pendidikan" class="education-section pop-reveal">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="badge-pill badge-pill-cyan" data-i18n="edu_badge">ACADEMIC BACKGROUND</span>
+        <h2 class="section-title" data-i18n="edu_title">Riwayat Pendidikan</h2>
+        <p class="section-subtitle" data-i18n="edu_subtitle" style="margin: 0 auto;">
+          Perjalanan akademik dan fondasi keilmuan yang membentuk keahlian teknis saya dalam rekayasa perangkat lunak.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <!-- Item 1: Universitas Brawijaya -->
+        <div class="timeline-item">
+          <div class="timeline-marker">🎓</div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-degree" data-i18n="edu1_degree">D4 Teknologi Rekayasa Perangkat Lunak</h3>
+                <div class="timeline-school" data-i18n="edu1_school">Fakultas Vokasi, Universitas Brawijaya</div>
+              </div>
+              <span class="timeline-year-badge" data-i18n="edu1_year">2026 — Sekarang</span>
+            </div>
+            <p class="timeline-desc" data-i18n="edu1_desc">
+              Mendalami rekayasa perangkat lunak modern, perancangan arsitektur antarmuka digital UI/UX, pengembangan web &amp; mobile application, serta integrasi kode fungsional yang responsif dan berorientasi pengguna.
+            </p>
+            <div class="timeline-achievements">
+              <span class="achievement-tag" data-i18n="edu1_tag1">💻 Rekayasa Perangkat Lunak</span>
+              <span class="achievement-tag" data-i18n="edu1_tag2">🎨 UI/UX Interface Design</span>
+              <span class="achievement-tag" data-i18n="edu1_tag3">📱 Web &amp; App Development</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: SMKN 13 Negeri Malang -->
+        <div class="timeline-item">
+          <div class="timeline-marker">🎨</div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-degree" data-i18n="edu2_degree">Desain Komunikasi Visual (DKV)</h3>
+                <div class="timeline-school" data-i18n="edu2_school">SMKN 13 Negeri Malang</div>
+              </div>
+              <span class="timeline-year-badge" data-i18n="edu2_year">Lulus 2026</span>
+            </div>
+            <p class="timeline-desc" data-i18n="edu2_desc">
+              Membangun fondasi kuat dalam estetika visual, tata letak antarmuka, teori warna, tipografi, pembuatan aset digital, multimedia interaktif, dan strategi visual branding.
+            </p>
+            <div class="timeline-achievements">
+              <span class="achievement-tag" data-i18n="edu2_tag1">🏆 Penghargaan Karya Desain Grafis Terbaik UKK 2026</span>
+              <span class="achievement-tag" data-i18n="edu2_tag2">🎨 Desain Komunikasi Visual</span>
+              <span class="achievement-tag" data-i18n="edu2_tag3">✨ Visual Identity &amp; Branding</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: Alviero Studio Foto -->
+        <div class="timeline-item">
+          <div class="timeline-marker">📷</div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-degree" data-i18n="edu3_degree">Praktik Fotografi Studio &amp; Produksi Aset Visual</h3>
+                <div class="timeline-school" data-i18n="edu3_school">Alviero Studio Foto</div>
+              </div>
+              <span class="timeline-year-badge" data-i18n="edu3_year">Magang Industri</span>
+            </div>
+            <p class="timeline-desc" data-i18n="edu3_desc">
+              Praktik fotografi studio, penyuntingan foto profesional, manajemen pencahayaan studio, serta produksi aset visual multimedia berkualitas tinggi untuk kebutuhan komersial dan digital.
+            </p>
+            <div class="timeline-achievements">
+              <span class="achievement-tag" data-i18n="edu3_tag1">📸 Fotografi Studio &amp; Lighting</span>
+              <span class="achievement-tag" data-i18n="edu3_tag2">🖌️ Penyuntingan Foto Profesional</span>
+              <span class="achievement-tag" data-i18n="edu3_tag3">🎬 Produksi Aset Visual Digital</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         KEAHLIAN & SKILL (Skills Section)
+         ========================================== -->
+    <section id="skills" data-name="Keahlian & Skill" class="skills-section pop-reveal">
+      <span class="badge-pill" data-i18n="skills_badge">MY SKILLS</span>
+      <h2 class="section-title" data-i18n="skills_title">Technologies I Master</h2>
+      <p class="section-subtitle" data-i18n="skills_subtitle" style="margin: 0 auto 30px;">
+        Kumpulan keahlian teknis dan teknologi modern yang saya gunakan setiap hari dalam mengembangkan solusi digital.
+      </p>
+
+      <!-- Skills Progress Bars matching the reference layout -->
+      <div class="skills-grid">
+        <!-- HTML -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#e34f26;font-weight:bold;">H</span></div>
+              <span class="skill-name">HTML</span>
+            </div>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="95%"></div>
+          </div>
+        </div>
+
+        <!-- React.js -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#61dafb;font-weight:bold;">⚛</span></div>
+              <span class="skill-name">React.js</span>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="85%"></div>
+          </div>
+        </div>
+
+        <!-- Node.js -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#339933;font-weight:bold;">N</span></div>
+              <span class="skill-name">Node.js</span>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="80%"></div>
+          </div>
+        </div>
+
+        <!-- CSS -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#1572b6;font-weight:bold;">C</span></div>
+              <span class="skill-name">CSS</span>
+            </div>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="90%"></div>
+          </div>
+        </div>
+
+        <!-- Next.js -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#fff;font-weight:bold;">▲</span></div>
+              <span class="skill-name">Next.js</span>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="80%"></div>
+          </div>
+        </div>
+
+        <!-- Tailwind CSS -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#38bdf8;font-weight:bold;">≋</span></div>
+              <span class="skill-name">Tailwind CSS</span>
+            </div>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="90%"></div>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#f7df1e;font-weight:bold;">JS</span></div>
+              <span class="skill-name">JavaScript</span>
+            </div>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="90%"></div>
+          </div>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#3178c6;font-weight:bold;">TS</span></div>
+              <span class="skill-name">TypeScript</span>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="85%"></div>
+          </div>
+        </div>
+
+        <!-- Git -->
+        <div class="skill-bar-card">
+          <div class="skill-card-top">
+            <div class="skill-info">
+              <div class="skill-icon"><span style="color:#f05032;font-weight:bold;">⌥</span></div>
+              <span class="skill-name">Git</span>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="skill-track">
+            <div class="skill-fill" data-width="85%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Tech Cloud -->
+      <div class="additional-skills">
+        <h4 class="additional-title" data-i18n="tools_title">Tools &amp; Framework Lainnya</h4>
+        <div class="skills-pill-cloud">
+          <span class="skill-pill">🐳 Docker</span>
+          <span class="skill-pill">🐘 PostgreSQL</span>
+          <span class="skill-pill">🍃 MongoDB</span>
+          <span class="skill-pill">📦 Prisma ORM</span>
+          <span class="skill-pill">🌐 Three.js &amp; WebGL</span>
+          <span class="skill-pill">⚡ Express &amp; NestJS</span>
+          <span class="skill-pill">🎨 Figma to Code</span>
+          <span class="skill-pill">🔥 Firebase / Supabase</span>
+          <span class="skill-pill">🔒 OAuth &amp; JWT Auth</span>
+          <span class="skill-pill">🚀 RESTful &amp; GraphQL</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         PROJECT YANG PERNAH DIBUAT (Projects Grid)
+         ========================================== -->
+    <section id="projects" data-name="Project Portofolio" class="projects-section pop-reveal">
+      <div class="projects-header">
+        <span class="badge-pill" data-i18n="projects_badge">PROYEK UNGGULAN</span>
+        <h2 class="section-title" data-i18n="projects_title">Karya &amp; Proyek Terpilih</h2>
+        <p class="section-subtitle" data-i18n="projects_subtitle" style="margin: 0 auto;">
+          Koleksi karya pengembangan web dan desain antarmuka nyata yang dibangun dengan fokus pada performa, estetika visual, dan kenyamanan pengguna.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Website Cafe Pingopi -->
+        <div class="project-card" data-project-id="1" data-category="webapp">
+          <div class="project-thumbnail">
+            <span class="project-badge-num">01</span>
+            <span class="project-category-tag">F&amp;B / Web App</span>
+            <img src="assets/project-pingopi.svg" alt="Website Cafe Pingopi" class="project-img">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title" data-i18n="p1_title">Website Cafe Pingopi</h3>
+            <p class="project-desc" data-i18n="p1_desc">
+              Platform website interaktif Cafe Pingopi yang memadukan katalog menu kopi spesialti &amp; makanan, sistem reservasi meja online, dan integrasi pemesanan responsif.
+            </p>
+            <div class="project-tech-tags">
+              <span class="project-tag">HTML5 &amp; CSS3</span>
+              <span class="project-tag">JavaScript ES6+</span>
+              <span class="project-tag">UI/UX Interface</span>
+              <span class="project-tag">Responsive Web</span>
+            </div>
+            <div class="project-footer-link" data-i18n="project_view_detail">
+              Lihat Detail Proyek <span>→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 (Coming Soon Placeholder) -->
+        <div class="project-card project-card-upcoming" style="border: 2px dashed rgba(255, 255, 255, 0.12); background: rgba(14, 16, 30, 0.4); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 48px 24px; min-height: 380px; cursor: default;">
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: rgba(0, 245, 255, 0.08); border: 1px solid rgba(0, 245, 255, 0.25); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00f5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+          <span class="badge-pill badge-pill-cyan" style="margin-bottom: 12px;" data-i18n="projects_empty_badge">COMING SOON</span>
+          <h4 style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 8px;" data-i18n="projects_upcoming_title">Proyek Berikutnya Segera Hadir</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 280px; line-height: 1.5;" data-i18n="projects_upcoming_desc">
+            Karya dan studi kasus pengembangan web berikutnya sedang dalam tahap penyusunan dan pengujian.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SERTIFIKAT (Certifications & Awards)
+         ========================================== -->
+    <section id="certificates" data-name="Sertifikat & Lisensi" class="certificates-section pop-reveal">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="badge-pill badge-pill-cyan" data-i18n="cert_badge">KREDENSIAL &amp; PENGHARGAAN</span>
+        <h2 class="section-title" data-i18n="cert_title">Lisensi &amp; Sertifikat Kompetensi</h2>
+        <p class="section-subtitle" data-i18n="cert_subtitle" style="margin: 0 auto;">
+          Penghargaan resmi dan sertifikasi kompetensi yang memvalidasi keahlian di bidang industri kreatif, kecerdasan buatan (AI), serta desain visual.
+        </p>
+      </div>
+
+      <div class="certificates-grid">
+        <!-- Cert 1: Alviero Studio -->
+        <div class="cert-card" data-cert-id="1">
+          <div class="cert-header">
+            <div class="cert-badge-icon">🎬</div>
+            <div>
+              <h3 class="cert-title" data-i18n="cert1_title">Anak Magang Terbaik — Alviero Studio Foto</h3>
+              <div class="cert-issuer" data-i18n="cert1_issuer">Alviero Studio Foto · Divisi Editor &amp; Konten Kreator</div>
+            </div>
+          </div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:14px;" data-i18n="cert1_desc">
+            Penghargaan atas dedikasi dan kinerja terbaik dalam penyuntingan foto studio profesional, produksi konten visual kreatif, dan manajemen aset multimedia.
+          </p>
+          <div class="cert-meta">
+            <span class="cert-id">ALVIERO-INTERN-2026</span>
+            <button class="btn-cert-preview" data-i18n="cert_btn_preview">Lihat Pop-up ↗</button>
+          </div>
+        </div>
+
+        <!-- Cert 2: Student Gemini AI -->
+        <div class="cert-card" data-cert-id="2">
+          <div class="cert-header">
+            <div class="cert-badge-icon">✨</div>
+            <div>
+              <h3 class="cert-title" data-i18n="cert2_title">Mahasiswa Terverifikasi Student Gemini</h3>
+              <div class="cert-issuer" data-i18n="cert2_issuer">Google · Pengetahuan &amp; Implementasi AI</div>
+            </div>
+          </div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:14px;" data-i18n="cert2_desc">
+            Sertifikasi pemahaman dan penerapan teknologi Artificial Intelligence (AI), prompting cerdas, dan integrasi ekosistem Google Gemini untuk inovasi digital.
+          </p>
+          <div class="cert-meta">
+            <span class="cert-id">GEMINI-STUDENT-AI-2026</span>
+            <button class="btn-cert-preview" data-i18n="cert_btn_preview">Lihat Pop-up ↗</button>
+          </div>
+        </div>
+
+        <!-- Cert 3: Desain Komunikasi Visual Karya Terbaik -->
+        <div class="cert-card" data-cert-id="3">
+          <div class="cert-header">
+            <div class="cert-badge-icon">🏆</div>
+            <div>
+              <h3 class="cert-title" data-i18n="cert3_title">Siswa DKV dengan Karya Desain Terbaik</h3>
+              <div class="cert-issuer" data-i18n="cert3_issuer">SMKN 13 Malang · Uji Kompetensi Keahlian (UKK)</div>
+            </div>
+          </div>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:14px;" data-i18n="cert3_desc">
+            Penghargaan karya terbaik pada Uji Kompetensi Keahlian (UKK) 2026 program Desain Komunikasi Visual (DKV) dalam pembuatan identitas visual dan karya grafis unggulan.
+          </p>
+          <div class="cert-meta">
+            <span class="cert-id">UKK-DKV-BESTWORK-2026</span>
+            <button class="btn-cert-preview" data-i18n="cert_btn_preview">Lihat Pop-up ↗</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         TESTIMONIAL & CONTACT SECTION
+         ========================================== -->
+    <section id="contact" data-name="Testimoni & Kontak" class="contact-section pop-reveal">
+      <!-- Testimonial matching reference image -->
+      <div class="testimonial-card">
+        <div>
+          <div class="quote-icon">“</div>
+          <p class="quote-text" data-i18n="testimonial_quote">
+            "Layana is an exceptional designer and developer who seamlessly bridges creative visual aesthetics with clean, functional code. His attention to UI/UX details, user empathy, and digital marketing insight made our product stand out and exceed expectations."
+          </p>
+        </div>
+        <div class="client-info">
+          <img src="assets/client-avatar.svg" alt="Sarah Johnson" class="client-avatar">
+          <div>
+            <div class="client-name">Sarah Johnson</div>
+            <div class="client-role">CEO, TechStart Inc.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Let's Work Together Box -->
+      <div class="contact-card">
+        <div>
+          <span class="badge-pill" data-i18n="contact_badge">LET'S WORK TOGETHER</span>
+          <h2 class="section-title" data-i18n="contact_title" style="font-size: 1.8rem; margin-bottom: 12px;">
+            Have a project in mind?
+          </h2>
+          <p data-i18n="contact_desc" style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Let's create something extraordinary together!
+          </p>
+          <a href="mailto:layanasantoso@gmail.com" class="btn btn-primary" data-i18n="btn_get_in_touch" style="display: inline-flex;">
+            Get in Touch ↗
+          </a>
+        </div>
+
+        <div style="margin-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
+          <div data-i18n="follow_me" style="font-size: 0.75rem; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px; font-weight: 700;">
+            FOLLOW ME
+          </div>
+          <div class="social-links-row">
+            <!-- GitHub -->
+            <a href="https://github.com" target="_blank" rel="noreferrer" class="social-icon-btn" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <!-- Twitter -->
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" class="social-icon-btn" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-icon-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+
+          <div style="margin-top: 18px; font-size: 0.88rem; color: #cbd5e1;">
+            <div style="margin-bottom: 6px;">✉️ balinyt09@gmail.com</div>
+            <div>📞 +62 831-1318-2281</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div data-i18n="footer_rights">© 2026 Layana Balin Santoso. All rights reserved.</div>
+      <div data-i18n="footer_made">Made with <span style="color: #ef4444;">❤️</span> by Layana</div>
+    </footer>
+  </main>
+
+
+  <!-- ==========================================
+       POP-UP MODAL: DETAIL PROJECT
+       ========================================== -->
+  <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="modal-box modal-box-large">
+      <button id="btn-close-project" class="modal-close-btn" aria-label="Tutup">&times;</button>
+      <img id="modal-project-img" src="assets/project1.svg" alt="Project Preview" class="modal-project-img">
+      
+      <div class="modal-project-body">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <span id="modal-project-category" class="badge-pill badge-pill-cyan" style="margin-bottom:0;">Web App</span>
+        </div>
+        <h3 id="modal-project-title" class="section-title" style="font-size:1.6rem; margin-bottom:12px;">Project Title</h3>
+        <p id="modal-project-desc" style="color:var(--text-secondary); line-height:1.6; font-size:0.95rem; margin-bottom:20px;">
+          Project detailed description goes here.
+        </p>
+
+        <div style="margin-bottom:24px;">
+          <div style="font-size:0.75rem; letter-spacing:1.5px; color:var(--text-dim); text-transform:uppercase; margin-bottom:8px; font-weight:700;">
+            TEKNOLOGI YANG DIGUNAKAN
+          </div>
+          <div id="modal-project-tags" class="project-tech-tags"></div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a id="modal-project-live" href="#" target="_blank" class="btn btn-primary">Live Demo ↗</a>
+          <a id="modal-project-github" href="#" target="_blank" class="btn btn-secondary">Source Code on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       POP-UP MODAL: PREVIEW SERTIFIKAT
+       ========================================== -->
+  <div id="cert-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-cert-title">
+    <div class="modal-box modal-box-large" style="text-align:center; padding:36px;">
+      <button id="btn-close-cert" class="modal-close-btn" aria-label="Tutup">&times;</button>
+      <div id="modal-cert-badge" style="font-size:3.5rem; margin-bottom:12px;">🏆</div>
+      <h3 id="modal-cert-title" class="section-title" style="font-size:1.6rem; margin-bottom:6px;">Nama Sertifikasi</h3>
+      <div id="modal-cert-issuer" style="color:#38bdf8; font-weight:700; font-size:1rem; margin-bottom:6px;">Penerbit Resmi</div>
+      <div id="modal-cert-date" style="color:var(--text-muted); font-size:0.85rem; margin-bottom:16px;">Tahun Terbit</div>
+
+      <div id="modal-cert-id" style="display:inline-block; font-family:var(--font-code); background:rgba(255,255,255,0.06); padding:6px 14px; border-radius:8px; font-size:0.8rem; color:#a78bfa; margin-bottom:24px;">
+        ID Kredensial
+      </div>
+
+      <div style="text-align:left; background:rgba(12,14,28,0.7); border:1px solid var(--border-color); padding:18px; border-radius:14px; margin-bottom:24px;">
+        <div style="font-size:0.75rem; letter-spacing:1px; color:var(--text-dim); text-transform:uppercase; margin-bottom:10px; font-weight:700;">
+          KOMPETENSI YANG TERVERIFIKASI
+        </div>
+        <div id="modal-cert-skills" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+      </div>
+
+      <button onclick="document.getElementById('cert-modal').classList.remove('active')" class="btn btn-primary" style="width:100%;">
+        Tutup Verifikasi Sertifikat
+      </button>
+    </div>
+  </div>
+
+  <!-- Three.js (r128 CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- 3D Scene Script -->
+  <script src="js/three-background.js"></script>
+
+  <!-- Application Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

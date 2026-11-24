@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="p5Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#p5Grad)" />
+  <rect x="0" y="0" width="600" height="36" fill="#064e3b" />
+  <circle cx="20" cy="18" r="5" fill="#ef4444" />
+  <circle cx="36" cy="18" r="5" fill="#f59e0b" />
+  <circle cx="52" cy="18" r="5" fill="#10b981" />
+  <text x="80" y="22" fill="#6ee7b7" font-family="sans-serif" font-size="12" font-weight="700">CLOUD METRICS // CLUSTER STATUS: HEALTHY</text>
+  
+  <rect x="30" y="55" width="250" height="120" rx="10" fill="#064e3b" opacity="0.4" stroke="#10b981" />
+  <text x="50" y="85" fill="#6ee7b7" font-family="sans-serif" font-size="12">Global Latency Avg</text>
+  <text x="50" y="125" fill="#fff" font-family="monospace" font-size="32" font-weight="700">14.2 ms</text>
+
+  <rect x="320" y="55" width="250" height="120" rx="10" fill="#064e3b" opacity="0.4" stroke="#10b981" />
+  <text x="340" y="85" fill="#6ee7b7" font-family="sans-serif" font-size="12">Throughput Ops/sec</text>
+  <text x="340" y="125" fill="#fff" font-family="monospace" font-size="32" font-weight="700">98,400</text>
+
+  <rect x="30" y="195" width="540" height="135" rx="10" fill="#0f172a" stroke="rgba(255,255,255,0.08)" />
+  <text x="50" y="225" fill="#94a3b8" font-family="sans-serif" font-size="12">Server Nodes Telemetry Stream</text>
+  <rect x="50" y="245" width="80" height="60" rx="6" fill="#10b981" opacity="0.3" />
+  <rect x="150" y="245" width="80" height="60" rx="6" fill="#10b981" opacity="0.3" />
+  <rect x="250" y="245" width="80" height="60" rx="6" fill="#10b981" opacity="0.3" />
+  <rect x="350" y="245" width="80" height="60" rx="6" fill="#10b981" opacity="0.3" />
+  <rect x="450" y="245" width="80" height="60" rx="6" fill="#10b981" opacity="0.3" />
+</svg>
